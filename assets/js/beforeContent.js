@@ -1,3 +1,15 @@
+
+let loadedScripts = [];
+let loadedData = {};
+
+document.querySelector('html').classList.remove('no-js');
+
+// if fade in animation is possible, hide content before page fully loads
+if(('IntersectionObserver' in window) && !(window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+	document.querySelector('.overlay').classList.remove('hidden');
+	document.querySelector('html').classList.add('overflow-hidden');
+}
+
 let userPreference = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 let darkMode = false;
 
@@ -11,7 +23,7 @@ function detectDarkMode() {
 function updateElements() {
 	if(darkMode) {
 		document.querySelector('html').classList.add('dark');
-		document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#020c1b');
+		document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#121212');
 	}
 	else {
 		document.querySelector('html').classList.remove('dark');
