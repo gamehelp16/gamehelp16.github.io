@@ -36,7 +36,8 @@ function prepareFadeInAnimation() {
 		appearOnScroll.observe(elem);
 	});
 
-	document.querySelector('html').classList.remove('hidden');
+	document.querySelector('.overlay').classList.add('hidden');
+	document.querySelector('html').classList.remove('overflow-hidden');
 }
 
 prepareFadeInAnimation();

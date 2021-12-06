@@ -5,7 +5,10 @@ let loadedData = {};
 document.querySelector('html').classList.remove('no-js');
 
 // if fade in animation is possible, hide content before page fully loads
-if(('IntersectionObserver' in window) && !(window.matchMedia('(prefers-reduced-motion: reduce)').matches)) document.querySelector('html').classList.add('hidden');
+if(('IntersectionObserver' in window) && !(window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+	document.querySelector('.overlay').classList.remove('hidden');
+	document.querySelector('html').classList.add('overflow-hidden');
+}
 
 let userPreference = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 let darkMode = false;
